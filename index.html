@@ -1,47 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Video Player</title>
-    <style>
-        html {
-            overflow: hidden;
-            background-color: black;
-        }
-        html,
-        body,
-        div,
-        iframe {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            border: none;
-            display: block;
-            width: 100%;
-            overflow: hidden;
-        }
-    </style>
-</head>
+<html>
+<style>
+html {
+  overflow: hidden;
+  background-color: black;
+}
+html,
+body,
+div,
+iframe {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  border: none;
+  display: block;
+  width: 100%;
+  border: none;
+  overflow: hidden;
+  padding-bottom: 100;
+}
+</style>
 <body>
-    <iframe
-        id="thisIframe"
-        width="100%"
-        height="100%"
-        frameborder="0"
-        allowfullscreen></iframe>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const videoId = urlParams.get('videoId');
-            
-            if (videoId) {
-                const iframe = document.getElementById('thisIframe');
-                iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&enablejsapi=1&playsinline=1&showinfo=0&controls=1`;
-            }
-        });
-    </script>
+  <iframe
+    id="thisIframe"
+    width="100%" height="100%"
+    src="https://www.youtube.com/embed/jzD_yyEcp0M?rel=0&enablejsapi=1&playsinline=1&showInfo=0&controls=1&fullscreen=1"frameborder="0"allowfullscreen="true"></iframe>
 </body>
-</html> 
+<script>
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  var s = document.getElementById('thisIframe');
+  s.src = `https://www.youtube.com/embed/${urlParams.get('videoId')}?rel=0&enablejsapi=1&playsinline=1&showInfo=0&controls=1&fullscreen=1`;
+</script>
+</html>
