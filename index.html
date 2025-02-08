@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Player</title>
+    <style>
+        html {
+            overflow: hidden;
+            background-color: black;
+        }
+        html,
+        body,
+        div,
+        iframe {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            border: none;
+            display: block;
+            width: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <iframe
+        id="thisIframe"
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/jzD_yyEcp0M?rel=0&enablejsapi=1&playsinline=1&showinfo=0&controls=1"
+        frameborder="0"
+        allowfullscreen></iframe>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const videoId = urlParams.get('videoId');
+            
+            if (videoId) {
+                const iframe = document.getElementById('thisIframe');
+                iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&enablejsapi=1&playsinline=1&showinfo=0&controls=1`;
+            }
+        });
+    </script>
+</body>
+</html> 
